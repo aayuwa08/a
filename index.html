@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BLADO</title>
+
+  <!-- Winky Rough Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Winky+Rough:ital,wght@0,300..900;1,300..900&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Font Awesome for Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+
+  <!-- Link to external stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Sticky Logo -->
+  <div class="logo-sticky">
+    <h1><a href="#home" class="logo-link">BLADO</a></h1>
+  </div>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+
+      <li class="dropdown">
+        <a href="#">Shop</a>
+        <ul class="dropdown-content">
+          <li><a href="#">Earrings</a></li>
+          <li><a href="#">SHOP ALL</a></li>
+          <li><a href="#">Chandra Surya Collection</a></li>
+          <li><a href="#">Bracelets</a></li>
+          <li><a href="#">Hair Accessories</a></li>
+          <li><a href="#">Necklace</a></li>
+          <li><a href="#">Pins &amp; Cufflinks</a></li>
+          <li><a href="#">Raw Crystals</a></li>
+          <li><a href="#">Rings</a></li>
+          <li><a href="#">Silver Jewelry</a></li>
+          <li><a href="#">Collaborations</a></li>
+          <li><a href="#">Gift Card</a></li>
+        </ul>
+      </li>
+
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+
+      <!-- Search Field -->
+      <li class="search-bar">
+        <input type="text" placeholder="Search..." />
+        <i class="fas fa-search"></i>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Home Section -->
+  <section id="home" class="home-section">
+    <div class="home-gallery">
+      <img
+        src="images/Look-Old-Money-on-a-Tight-Budget.jpg"
+        alt="Photo 1"
+        loading="lazy"
+      />
+      <img
+        src="images/Old-Money-Aesthetic-Style-Guide-2024.jpg"
+        alt="Photo 2"
+        loading="lazy"
+      />
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about" id="about">
+    <div class="about-container">
+      <h2>About BLADO</h2>
+      <p>
+        BLADO is a Nepali clothing house inspired by the elegance of old money
+        and timeless dressing. We believe true luxury is quiet — found not in
+        logos, but in craftsmanship, quality, and character.
+      </p>
+      <p>
+        Every piece we create reflects a sense of heritage and understated
+        sophistication. BLADO is for those who value tradition, carry
+        themselves with dignity, and invest in garments that last a lifetime.
+      </p>
+      <p>
+        Rooted in Kathmandu and tailored for the world, BLADO is more than
+        clothing — it's a symbol of who you are when no one is watching.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section">
+    <div class="contact-container">
+      <h2>Contact Us</h2>
+      <p>Have questions or want to reach out? We're here to help.</p>
+
+      <form id="contactForm" class="contact-form" novalidate>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Your Name"
+          required
+          autocomplete="off"
+        />
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Your Email"
+          required
+          autocomplete="off"
+        />
+        <input
+          type="text"
+          id="subject"
+          name="subject"
+          placeholder="Subject"
+          autocomplete="off"
+        />
+        <textarea
+          id="message"
+          name="message"
+          rows="5"
+          placeholder="Your Message"
+          required
+          autocomplete="off"
+        ></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+
+      <div
+        id="formMessage"
+        style="display: none; margin-top: 20px; font-weight: 600;"
+      ></div>
+
+      <div class="contact-info">
+        <p>Email: <a href="mailto:info@blado.com">info@blado.com</a></p>
+        <p>Phone: +977 9840554977</p>
+        <p>Address: Kathmandu, Nepal</p>
+      </div>
+
+      <div class="social-links">
+        <a href="#" aria-label="Instagram"
+          ><i class="fab fa-instagram"></i
+        ></a>
+        <a href="#" aria-label="Facebook"
+          ><i class="fab fa-facebook"></i
+        ></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scrollable Content for Demo -->
+  <div class="content">
+    <div style="height: 300px"></div>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    const form = document.getElementById("contactForm");
+    const formMessage = document.getElementById("formMessage");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      // Simple validation check
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const message = form.message.value.trim();
+
+      if (!name || !email || !message) {
+        formMessage.style.color = "red";
+        formMessage.textContent = "Please fill out all required fields.";
+        formMessage.style.display = "block";
+        return;
+      }
+
+      // Optionally, validate email format with regex
+      const emailPattern =
+        /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+      if (!emailPattern.test(email)) {
+        formMessage.style.color = "red";
+        formMessage.textContent = "Please enter a valid email address.";
+        formMessage.style.display = "block";
+        return;
+      }
+
+      // Show success message and reset form
+      formMessage.style.color = "green";
+      formMessage.textContent =
+        "Thank you for reaching out, " +
+        name +
+        "! We will get back to you soon.";
+      formMessage.style.display = "block";
+
+      form.reset();
+    });
+  </script>
+</body>
+</html>
